@@ -1,0 +1,130 @@
+<!--
+    USE FOR ACADEMIC PURPOSES ONLY
+    This file is a part of the web software ConVis and part of a
+    bachelors thesis about confusion matrix visualization.
+
+    Aleksandar Doknic
+    University of Vienna
+    Faculty for Computer Science
+    Last file update: June 28, 2018
+-->
+<!DOCTYPE html>
+<meta charset="UTF-8" />
+<html>
+<header>
+    <title>ConVis 1.0 (BSc Version)</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/stackedbars.css" />
+    <link rel="stylesheet" type="text/css" href="css/scatterplot.css" />
+    <link rel="stylesheet" type="text/css" href="css/classdetailbox.css" />
+    <link rel="stylesheet" type="text/css" href="css/dashboard.css" />
+    <link rel="stylesheet" type="text/css" href="css/helpbox.css" />
+    <link rel="stylesheet" type="text/css" href="css/hiddenmouseovercanvas.css" />
+    <link rel="stylesheet" type="text/css" href="css/heatmap.css" />
+</header>
+
+<body>
+
+    <div id="uploader">
+        <span id="logo">ConVis <br/> <span style="font-size:30px">Confusion Matrix Visualization Tool</span></span><br/><br/> The confusion matrix should be in CSV format and only include the parts marked in green below:<br/><br/>
+        <table class="exampletable">
+            <tr>
+                <td style="background-color:rgba(0,0,0,0.2)">Actual \ Predicted</td>
+                <td>Label 1</td>
+                <td>Label 2</td>
+                <td>...</td>
+            </tr>
+            <tr>
+                <td style="background-color:rgba(0,0,0,0.2)">Label 1</td>
+                <td>47</td>
+                <td>3</td>
+                <td>...</td>
+            </tr>
+            <tr>
+                <td style="background-color:rgba(0,0,0,0.2)">Label 2</td>
+                <td>2</td>
+                <td>48</td>
+                <td>...</td>
+            </tr>
+            <tr>
+                <td style="background-color:rgba(0,0,0,0.2)">...</td>
+                <td>...</td>
+                <td>...</td>
+                <td>...</td>
+            </tr>
+        </table><br/><br/><br/>
+
+        <label for="uploadinput" class="button" style="font-size:20px">&#8679; Analyze Confusion Matrix &#8679;</label>
+        <input type="file" id="uploadinput" onchange="loadConfusionMatrix(this.files)" hidden/>
+
+        <br/><br/>Download test files: <a href="testdata/test.csv">test.csv</a> <a href="testdata/balancedtest.csv">balancedtest.csv</a> <a href="testdata/hundkatze.csv">hundkatze.csv</a> <a href="testdata/tpms_dirichlet.csv">tpms_dirichlet.csv</a>
+
+        <br/><br/><br/>Alternatively a simple 2-column test data file can be used to generate a confusion matrix:<br/><br/>
+
+        <table class="exampletable">
+            <tr>
+                <td style="background-color:rgba(0,0,0,0.2)">Observation</td>
+                <td style="background-color:rgba(0,0,0,0.2)">Actual</td>
+                <td style="background-color:rgba(0,0,0,0.2)">Predicted</td>
+            </tr>
+            <tr>
+                <td style="background-color:rgba(0,0,0,0.2)">1</td>
+                <td>Label 2</td>
+                <td>Label 2</td>
+            </tr>
+            <tr>
+                <td style="background-color:rgba(0,0,0,0.2)">2</td>
+                <td>Label 1</td>
+                <td>Label 2</td>
+            </tr>
+            <tr>
+                <td style="background-color:rgba(0,0,0,0.2)">3</td>
+                <td>Label 1</td>
+                <td>Label 1</td>
+            </tr>
+            <tr>
+                <td style="background-color:rgba(0,0,0,0.2)">...</td>
+                <td>...</td>
+                <td>...</td>
+            </tr>
+        </table><br/><br/><br/>
+
+        <label for="uploadinputraw" class="button" style="font-size:20px">&#8679; Analyze Test Data &#8679;</label>
+        <input type="file" id="uploadinputraw" onchange="loadRawData(this.files)" hidden/><br/><br/> Download test files: <a href="testdata/rawdata.csv">rawdata.csv</a>
+    </div>
+
+    <!--div id="canvasbox">
+        <svg id="canvas">
+			<g id="heatmapblocks">
+			</g>
+			<g id="highlightlines">
+			</g>
+		</svg>
+    </div>
+
+    <div id="canvasbox2">
+        <svg id="canvas2">
+		</svg>
+    </div-->
+
+    <svg id="hiddenmouseovercanvas">
+        <rect></rect>
+        <text></text>
+    </svg>
+
+    <div id="helpbox">
+    </div>
+
+    <script src="js/external/d3.v4.min.js"></script>
+    <script src="js/dashboard.js"></script>
+    <script src="js/stackedbars.js"></script>
+    <script src="js/init.js"></script>
+    <script src="js/csvparser.js"></script>
+    <script src="js/scatterplot.js"></script>
+    <script src="js/classdetailbox.js"></script>
+    <script src="js/helpbox.js"></script>
+    <script src="js/heatmap.js"></script>
+    <script src="js/matrixdata.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,1 @@
+var body=d3.select("body");var colorActual="#ff9600";var colorPredicted="#379bff";var colorRecall="#ff9600";var colorPrecision="#379bff";var heatmapColor=[255,255,255];function toPercent(a){return(a*100).toFixed(2)}function formatOutputNumber(a){return a.toLocaleString("en-GB",{maximumFractionDigits:2})};
